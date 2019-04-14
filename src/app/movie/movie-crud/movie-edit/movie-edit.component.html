@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row" style="text-align:left" *ngIf="currentMovie">
+    <div class="col-md-12">
+      <form #editMovieForm="ngForm" (ngSubmit)="editMovie()">
+        <div class="form-group">
+
+
+          <label>Movie Title</label>
+          <input type="text" name="movieName" [(ngModel)]="currentMovie[0].movieName" #title="ngModel"
+            class="form-control" placeholder="Enter movie Name" required>
+
+        </div>
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          Movie Name is required
+        </div>
+
+        <div class="form-group">
+
+
+          <label>Rating</label>
+          <input type="text" name="rating" [(ngModel)]="currentMovie[0].rating" #ratingMovie="ngModel"
+            class="form-control" placeholder="Enter Rating" required>
+
+        </div>
+        <div [hidden]="ratingMovie.valid || ratingMovie.pristine" class="alert alert-danger">
+          rating is required
+        </div>
+
+        <div class="form-group">
+
+
+          <label>Directors</label>
+          <input type="text" name="tempDirectors" [(ngModel)]="tempDirectors" #directorsMovie="ngModel"
+            class="form-control" placeholder="Enter Directors Name With Comma Separated" required>
+
+        </div>
+        <div [hidden]="directorsMovie.valid || directorsMovie.pristine" class="alert alert-danger">
+          Director(s) Name is required
+        </div>
+
+
+        <div class="form-group">
+
+
+          <label>Release Date</label>
+          <input type="text" name="releaseDate" [(ngModel)]="currentMovie[0].releaseDate" #movieReleaseDate="ngModel"
+            class="form-control" placeholder="Enter ReleaseDate" required>
+
+        </div>
+        <div [hidden]="movieReleaseDate.valid || movieReleaseDate.pristine" class="alert alert-danger">
+          ReleaseDate is required
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!editMovieForm.form.valid">Edit this
+            movie</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+</div>
+<!--end container-->

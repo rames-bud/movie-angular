@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <!--create form for movie info-->
+
+  <div class="row" style="text-align:left">
+    <div class="col-md-12">
+      <form #addMovieForm="ngForm" (ngSubmit)="addMovie()">
+
+        <div class="form-group">
+
+
+          <label>Movie Title</label>
+          <input type="text" name="movieName" [(ngModel)]="movieName" #title="ngModel" class="form-control"
+            placeholder="Enter movie Name" required>
+
+        </div>
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          movie Name is required
+        </div>
+
+        <div class="form-group">
+
+
+          <label>Rating</label>
+          <input type="text" name="rating" [(ngModel)]="rating" #ratingMovie="ngModel" class="form-control"
+            placeholder="Enter Rating" required>
+
+        </div>
+        <div [hidden]="ratingMovie.valid || ratingMovie.pristine" class="alert alert-danger">
+          rating is required
+        </div>
+
+        <div class="form-group">
+
+
+          <label>Directors</label>
+          <input type="text" name="tempDirectors" [(ngModel)]="tempDirectors" #directorsMovie="ngModel"
+            class="form-control" placeholder="Enter Directors Name With Comma Separated" required>
+
+        </div>
+        <div [hidden]="directorsMovie.valid || directorsMovie.pristine" class="alert alert-danger">
+          Directors Name is required
+        </div>
+
+        <div class="form-group">
+
+
+          <label>Release Date</label>
+          <input type="text" name="releaseDate" [(ngModel)]="releaseDate" #movieReleaseDate="ngModel"
+            class="form-control" placeholder="YYYY-MM-DD" required>
+
+        </div>
+        <div [hidden]="movieReleaseDate.valid || movieReleaseDate.pristine" class="alert alert-danger">
+          ReleaseDate is required
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" [disabled]="!addMovieForm.form.valid">Create the
+            movie</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
+<!--end container-->

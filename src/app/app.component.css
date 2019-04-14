@@ -1,0 +1,26 @@
+
+/* can add global styles to this file, and also import other style files */
+
+.header{
+    background-color: #333;
+    color:#fff;
+    display: block;
+    padding: 2%;
+    margin: 2%;
+    font-size: 36px;
+    font-family: "Helvetica", sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.footer {
+    box-shadow: 5px 4px 8px 0 rgb(7, 71, 62);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    padding: .5%;
+    background-color: #333;
+    color:#fff;
+  }

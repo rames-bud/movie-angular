@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row" *ngIf="currentMovie">
+    <div class="col-md-12">
+      <h2>{{currentMovie.movieName}}</h2>
+
+      <h4>With rating {{currentMovie.rating}}
+      </h4>
+      <br>Released On: <br>
+      <p>{{currentMovie.releaseDate | date:"medium"}}</p>
+      <hr>
+      <div>
+        Directors: <span [innerHtml]="currentMovie.directors"></span>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="currentMovie">
+    <div class="col-md-4">
+
+      <a class="btn btn-primary" [routerLink]="['/movies/edit',currentMovie.movieId]">Edit </a>
+
+    </div>
+    <div class="col-md-4">
+
+      <a class="btn btn-danger" (click)="deleteThisMovie()">Delete </a>
+
+    </div>
+    <div class="col-md-4">
+
+      <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br>
+</div>

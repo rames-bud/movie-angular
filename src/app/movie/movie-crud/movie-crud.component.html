@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <a class="btn btn-primary" (click)="addMovie()">Add Movie</a>
+    </div>
+  </div>
+  <!--end user info adn logout-->
+
+  <div class="row" style="text-align:center">
+    <div class="col-md-12 lead" style="font-size:22px; margin-top: 20px">ALL MOVIES</div>
+    <br><br>
+  </div>
+  <div class="row" style="text-align:center" *ngIf='allMovies.length>0'>
+    <!--iterative div starts here-->
+    <div *ngFor="let movie of allMovies" class="col-md-6">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">{{movie.movieName | uppercase}}</div>
+        <div class="panel-body">
+          Directors: <span [innerHtml]="movie.directors"></span>
+        </div>
+        <div class="panel-footer">release on {{movie.releaseDate | date}}<br /> ratings : {{movie.rating}}
+          <br /><br /><a [routerLink]="['/movies/view/',movie.movieId]" class="btn btn-primary">View</a>
+
+        </div>
+      </div>
+
+      <br />
+    </div>
+    <!-- iterative div ends-->
+
+  </div>
+
+
+</div>
+<!--container end-->
