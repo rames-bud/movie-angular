@@ -4,7 +4,6 @@ import { MovieService } from 'src/app/movie.service';
 
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from 'src/app/app.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 
@@ -16,12 +15,9 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 export class MovieEditComponent implements OnInit {
   currentMovie: any;
   constructor(public router: Router, public _router: ActivatedRoute, public movieService: MovieService,
-    public modal: NgbModal, public AppService: AppService,
+    public modal: NgbModal,
      public toastr: ToastrService) {
-
-    console.log("inside movie edit")
-    
-
+    console.log("inside movie edit");
   }
 
 
@@ -32,7 +28,6 @@ export class MovieEditComponent implements OnInit {
   public releaseDate: Date;
   public directors: Array<any>;
   public tempDirectors: String;
-  
 
   ngOnInit() {
 
@@ -54,8 +49,8 @@ export class MovieEditComponent implements OnInit {
         console.log(this.currentMovie);
       }, error => {
 
-        console.log("some error occured");
-        this.toastr.error("some error occured : ", error.errorMessage)
+        console.log("some error occurred");
+        this.toastr.error("some error occurred : ", error.errorMessage)
 
       }
 
@@ -69,13 +64,12 @@ export class MovieEditComponent implements OnInit {
       data => {
         console.log(data);
         this.toastr.success("Movie updated successfully");
-        
         setTimeout(() => {
           this.router.navigate(['/movies/view', this.currentMovie[0].movieId]);
         }, 1000)
       },
       error => {
-        console.log("some error occured");
+        console.log("some error occurred");
         this.toastr.error("Error : ", error.message);
       }
 

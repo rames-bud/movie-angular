@@ -8,7 +8,6 @@ import * as moment from 'moment';
 
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { MovieService } from 'src/app/movie.service';
-import { AppService } from 'src/app/app.service';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -26,7 +25,7 @@ export class MovieCrudComponent implements OnInit {
   public allMovies;
 
 
-  constructor(public router: Router, public _router: ActivatedRoute, public movieService: MovieService, public modal: NgbModal, public AppService: AppService,
+  constructor(public router: Router, public _router: ActivatedRoute, public movieService: MovieService, public modal: NgbModal,
     public toastr: ToastrService) { }
   
   
@@ -50,7 +49,7 @@ export class MovieCrudComponent implements OnInit {
         }
       },
       error => {
-        console.log('some error occured');
+        console.log('some error occurred');
         this.toastr.error(error.errorMessage);
 
       }

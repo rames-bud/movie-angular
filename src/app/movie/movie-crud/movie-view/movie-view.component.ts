@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
 import { MovieService } from 'src/app/movie.service';
 import { Location } from '@angular/common';
 import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
@@ -16,7 +15,7 @@ export class MovieViewComponent implements OnInit {
 
   public currentMovie;
 
-  constructor(private _route: ActivatedRoute, private router: Router, private appService: AppService,
+  constructor(private _route: ActivatedRoute, private router: Router,
     private movieService: MovieService, private location: Location, public toastr: ToastrService) { }
 
   ngOnInit() {
@@ -30,7 +29,7 @@ export class MovieViewComponent implements OnInit {
         console.log(this.currentMovie);
       },
       error => {
-        console.log('some error occured');
+        console.log('some error occurred');
         this.toastr.error(error.errorMessage);
       }
     )
@@ -48,9 +47,9 @@ export class MovieViewComponent implements OnInit {
         }, 1000)
       },
       error => {
-        console.log("some error occured");
+        console.log("some error occurred");
         console.log(error.errorMessage);
-        this.toastr.error('some error occured', error.errorMessage);
+        this.toastr.error('some error occurred', error.errorMessage);
 
       }
     )

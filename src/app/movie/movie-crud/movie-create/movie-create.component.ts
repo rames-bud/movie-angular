@@ -4,7 +4,6 @@ import { MovieService } from 'src/app/movie.service';
 
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from 'src/app/app.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 
@@ -20,7 +19,7 @@ export class MovieCreateComponent implements OnInit {
 
 
   constructor(public router: Router, public _router: ActivatedRoute, public movieService: MovieService,
-    public modal: NgbModal, public AppService: AppService,
+    public modal: NgbModal,
     public toastr: ToastrService) {
   }
 
@@ -64,7 +63,7 @@ export class MovieCreateComponent implements OnInit {
         },
         error => {
           console.log(error.errorMessage);
-          this.toastr.error('Some error occured', error.errorMessage);
+          this.toastr.error('Some error occurred', error.errorMessage);
         }
 
       )

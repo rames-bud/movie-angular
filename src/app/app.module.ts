@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -49,15 +48,10 @@ import { HeaderInterceptor } from './interceptor/headerInterceptor';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '*', component: NotFoundComponent },
       { path: '**', component: NotFoundComponent },
-
-
-
-
     ]),
 
   ],
   providers: [
-    AppService,
     MovieService,
     {
       provide: HTTP_INTERCEPTORS,
